@@ -94,3 +94,13 @@ spring.jpa.generate-ddl=true
 - API Semantics
   - <https://www.uniprot.org/help/rest-api-headers>
   - <https://restfulapi.net/resource-naming/>
+
+### Backend Planning
+
+Okay, so our database design is first right? each employee has a firstname, lastname, middlename, email address, home address, phone number, and contract type. each contract
+has a start date, an end date, a type (permanent or casual), a number of hours per week, and can be ongoing. Presumably permanent employees are ongoing.
+
+so our relationships: employee table has names, contact details, and a relationship with the contract?
+Contract has a type, start and end dates, and an hour per week.
+one employee can have many contracts, but each contract has only one employee.
+You could have contract types as a separate table if they ever want to do part time? - in which case the contract type is a foreign key to contracts with a one to one mandatory relationship
