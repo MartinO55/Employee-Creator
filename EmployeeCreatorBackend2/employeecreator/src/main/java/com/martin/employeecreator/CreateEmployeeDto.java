@@ -1,10 +1,11 @@
-package com.example.demo;
+package com.martin.employeecreator;
 
 import jakarta.annotation.Nonnull;
+import jakarta.validation.constraints.NotBlank;
 
 public class CreateEmployeeDto {
 
-  @Nonnull
+  @NotBlank
   String firstName;
 
   public CreateEmployeeDto(
