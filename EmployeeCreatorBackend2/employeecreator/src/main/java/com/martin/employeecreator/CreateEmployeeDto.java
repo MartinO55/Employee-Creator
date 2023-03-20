@@ -1,12 +1,28 @@
 package com.martin.employeecreator;
 
-import jakarta.annotation.Nonnull;
 import jakarta.validation.constraints.NotBlank;
 
 public class CreateEmployeeDto {
 
   @NotBlank
   String firstName;
+
+  String middleName;
+
+  @NotBlank
+  String lastName;
+
+  @NotBlank
+  String email;
+
+  @NotBlank
+  String homeAddress;
+
+  @NotBlank
+  int phoneNumber;
+
+  @NotBlank
+  int contractType;
 
   public CreateEmployeeDto(
     String firstName,
@@ -23,21 +39,4 @@ public class CreateEmployeeDto {
     this.homeAddress = homeAddress;
     this.phoneNumber = phoneNumber;
   }
-
-  String middleName;
-
-  @Nonnull
-  String lastName;
-
-  @Nonnull
-  String email;
-
-  @Nonnull
-  String homeAddress;
-
-  @Nonnull
-  int phoneNumber;
-
-  @Nonnull
-  int contractType;
 }
