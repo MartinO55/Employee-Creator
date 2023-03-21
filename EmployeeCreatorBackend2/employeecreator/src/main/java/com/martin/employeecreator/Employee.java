@@ -1,10 +1,46 @@
 package com.martin.employeecreator;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.util.Date;
 
-public class CreateEmployeeDto {
+@Entity
+@Table(name = "Employees")
+public class Employee {
 
-  @NotBlank
+  public Employee(
+    Long id,
+    String firstName,
+    String middleName,
+    String lastName,
+    String email,
+    String homeAddress,
+    String phoneNumber,
+    String contractType,
+    Date createdAt
+  ) {
+    this.id = id;
+    this.firstName = firstName;
+    this.middleName = middleName;
+    this.lastName = lastName;
+    this.email = email;
+    this.homeAddress = homeAddress;
+    this.phoneNumber = phoneNumber;
+    this.contractType = contractType;
+    this.createdAt = createdAt;
+  }
+
+  public Employee() {}
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long id;
+
+  @Column
   String firstName;
 
   public String getFirstName() {
@@ -15,6 +51,7 @@ public class CreateEmployeeDto {
     this.firstName = firstName;
   }
 
+  @Column
   String middleName;
 
   public String getMiddleName() {
@@ -25,7 +62,7 @@ public class CreateEmployeeDto {
     this.middleName = middleName;
   }
 
-  @NotBlank
+  @Column
   String lastName;
 
   public String getLastName() {
@@ -36,7 +73,7 @@ public class CreateEmployeeDto {
     this.lastName = lastName;
   }
 
-  @NotBlank
+  @Column
   String email;
 
   public String getEmail() {
@@ -47,7 +84,7 @@ public class CreateEmployeeDto {
     this.email = email;
   }
 
-  @NotBlank
+  @Column
   String homeAddress;
 
   public String getHomeAddress() {
@@ -58,7 +95,7 @@ public class CreateEmployeeDto {
     this.homeAddress = homeAddress;
   }
 
-  @NotBlank
+  @Column
   String phoneNumber;
 
   public String getPhoneNumber() {
@@ -69,7 +106,7 @@ public class CreateEmployeeDto {
     this.phoneNumber = phoneNumber;
   }
 
-  @NotBlank
+  @Column
   String contractType;
 
   public String getContractType() {
@@ -80,21 +117,14 @@ public class CreateEmployeeDto {
     this.contractType = contractType;
   }
 
-  public CreateEmployeeDto(
-    String firstName,
-    String middleName,
-    String lastName,
-    String email,
-    String homeAddress,
-    String phoneNumber,
-    String contractType
-  ) {
-    this.firstName = firstName;
-    this.middleName = middleName;
-    this.lastName = lastName;
-    this.email = email;
-    this.homeAddress = homeAddress;
-    this.phoneNumber = phoneNumber;
-    this.contractType = contractType;
+  @Column
+  Date createdAt;
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
   }
 }
