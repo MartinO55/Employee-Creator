@@ -23,6 +23,7 @@ public class Employee {
     String contractType,
     Date createdAt
   ) {
+    super();
     this.id = id;
     this.firstName = firstName;
     this.middleName = middleName;

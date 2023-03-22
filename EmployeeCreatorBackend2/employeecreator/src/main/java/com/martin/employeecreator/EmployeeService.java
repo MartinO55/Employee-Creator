@@ -2,7 +2,10 @@ package com.martin.employeecreator;
 
 import jakarta.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -33,5 +36,13 @@ public class EmployeeService {
     newEmployee.setCreatedAt(new Date());
 
     return this.employeeRepository.save(newEmployee);
+  }
+
+  public List<Employee> getEmployees() {
+    return this.employeeRepository.findAll();
+  }
+
+  public Optional<Employee> findById(Long id) {
+    return this.employeeRepository.findById(id);
   }
 }
