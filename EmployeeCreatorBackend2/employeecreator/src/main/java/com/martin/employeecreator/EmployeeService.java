@@ -2,21 +2,23 @@ package com.martin.employeecreator;
 
 import jakarta.transaction.Transactional;
 import java.util.Date;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
 public class EmployeeService {
 
+  @Autowired
+  private EmployeeRepository employeeRepository;
+
   public Employee create(CreateEmployeeDto data) {
     String firstName = data.getFirstName().trim();
     String middleName = data.getMiddleName().trim();
     String lastName = data.getLastName().trim();
-
     String email = data.getEmail().trim();
     String homeAddress = data.getHomeAddress().trim();
     String phoneNumber = data.getPhoneNumber().trim();
-
     String contractType = data.getContractType();
 
     Employee newEmployee = new Employee();
@@ -30,6 +32,6 @@ public class EmployeeService {
     newEmployee.setContractType(contractType);
     newEmployee.setCreatedAt(new Date());
 
-    return newEmployee;
+    return this.employeeRepository.save(newEmployee);
   }
 }
