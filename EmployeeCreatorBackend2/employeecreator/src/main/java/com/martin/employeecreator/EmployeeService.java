@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,6 +14,7 @@ public class EmployeeService {
   @Autowired
   private EmployeeRepository employeeRepository;
 
+  @Autowired
   public Employee create(CreateEmployeeDto data) {
     String firstName = data.getFirstName().trim();
     String middleName = data.getMiddleName().trim();
@@ -44,5 +44,19 @@ public class EmployeeService {
 
   public Optional<Employee> findById(Long id) {
     return this.employeeRepository.findById(id);
+  }
+
+  public void deleteEmployeeById(Long id) {
+    this.employeeRepository.deleteById(id);
+  }
+
+  public void deleteAllEmployees() {
+    this.employeeRepository.deleteAll();
+  }
+
+  public Optional<Employee> updateAnEmployeeById(
+    Optional<Employee> maybeEmployee
+  ) {
+    return null;
   }
 }
