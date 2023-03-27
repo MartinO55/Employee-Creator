@@ -1,6 +1,7 @@
 package com.martin.employeecreator;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -55,7 +56,8 @@ public class EmployeeService {
   }
 
   public Optional<Employee> updateAnEmployeeById(
-    Optional<Employee> maybeEmployee
+    Long id,
+    UpdateEmployeeDto data
   ) {
     return null;
   }

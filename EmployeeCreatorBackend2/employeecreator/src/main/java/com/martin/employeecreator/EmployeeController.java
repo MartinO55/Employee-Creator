@@ -1,5 +1,6 @@
 package com.martin.employeecreator;
 
+import com.electronwill.nightconfig.core.file.NoFormatFoundException;
 import jakarta.validation.Valid;
 //import jakarta.validation.OverridesAttribute.List;
 
@@ -10,9 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -66,14 +67,17 @@ public class EmployeeController {
     return new ResponseEntity<>(maybeEmployee.get(), HttpStatus.OK);
   }
 
-  @PutMapping("/{id}")
-  public ResponseEntity<Employee> updateAnEmployeeById(@PathVariable Long id) {
-    Optional<Employee> maybeEmployee = this.employeeService.findById(id);
+  @PatchMapping("/{id}")
+  public ResponseEntity<Employee> updateAnEmployeeById(
+    @PathVariable Long id,
+    @Valid @RequestBody UpdateEmployeeDto data
+  ) {
+    Employee updatedEmployee =
+      this.employeeService.updateAnEmployeeById(id, data)
+        .orElseThrow(() ->
+          new NoFormatFoundException("Could not find employee with id " + id)
+        );
 
-    if (maybeEmployee.isEmpty()) {
-      return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-    }
-    this.employeeService.updateAnEmployeeById(maybeEmployee);
-    return new ResponseEntity<>(maybeEmployee.get(), HttpStatus.OK);
+    return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
   }
 }
