@@ -1,10 +1,10 @@
 package com.martin.employeecreator;
 
 import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +14,9 @@ public class EmployeeService {
 
   @Autowired
   private EmployeeRepository employeeRepository;
+
+  @Autowired
+  private ModelMapper mapper;
 
   @Autowired
   public Employee create(CreateEmployeeDto data) {
@@ -57,11 +60,15 @@ public class EmployeeService {
 
   public Optional<Employee> updateAnEmployeeById(
     Long id,
-    UpdateEmployeeDto data
+    CreateEmployeeDto data
   ) {
-    //find by id
+    Optional<Employee> maybeEmployee = this.findById(id);
+    if (maybeEmployee.isEmpty()) {
+      return maybeEmployee;
+    }
+    Employee existingEmployee = maybeEmployee.get();
 
-    //get the mapper thing in
-    return null;
+    mapper.map(data, existingEmployee);
+    return Optional.of(this.employeeRepository.save(existingEmployee));
   }
 }

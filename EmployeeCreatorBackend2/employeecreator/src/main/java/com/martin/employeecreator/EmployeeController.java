@@ -70,7 +70,7 @@ public class EmployeeController {
   @PatchMapping("/{id}")
   public ResponseEntity<Employee> updateAnEmployeeById(
     @PathVariable Long id,
-    @Valid @RequestBody UpdateEmployeeDto data
+    @Valid @RequestBody CreateEmployeeDto data
   ) {
     Employee updatedEmployee =
       this.employeeService.updateAnEmployeeById(id, data)
