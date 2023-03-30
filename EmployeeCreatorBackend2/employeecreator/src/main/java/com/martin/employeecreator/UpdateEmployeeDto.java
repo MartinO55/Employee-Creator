@@ -1,6 +1,7 @@
 package com.martin.employeecreator;
 
 import jakarta.validation.constraints.Size;
+import java.util.Date;
 
 public class UpdateEmployeeDto {
 
@@ -36,4 +37,11 @@ public class UpdateEmployeeDto {
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
+
+  String contractType;
+  String phoneNumber;
+  String homeAddress;
+  String email;
+  Date startDate;
+  Date endDate;
 }

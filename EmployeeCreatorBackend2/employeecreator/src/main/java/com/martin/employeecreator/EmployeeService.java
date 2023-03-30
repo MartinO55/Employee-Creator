@@ -27,6 +27,8 @@ public class EmployeeService {
     String homeAddress = data.getHomeAddress().trim();
     String phoneNumber = data.getPhoneNumber().trim();
     String contractType = data.getContractType();
+    Date startDate = data.getStartDate();
+    Date endDate = data.getEndDate();
 
     Employee newEmployee = new Employee();
 
@@ -37,6 +39,8 @@ public class EmployeeService {
     newEmployee.setHomeAddress(homeAddress);
     newEmployee.setPhoneNumber(phoneNumber);
     newEmployee.setContractType(contractType);
+    newEmployee.setStartDate(startDate);
+    newEmployee.setEndDate(endDate);
     newEmployee.setCreatedAt(new Date());
 
     return this.employeeRepository.save(newEmployee);

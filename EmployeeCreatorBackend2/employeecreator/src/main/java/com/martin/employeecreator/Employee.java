@@ -128,4 +128,32 @@ public class Employee {
   public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
+
+  @Column
+  Date startDate;
+
+  public Date getStartDate() {
+    return startDate;
+  }
+
+  public void setStartDate(Date startDate) {}
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  @Column
+  Date endDate;
+
+  public Date getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(Date endDate) {
+    this.endDate = endDate;
+  }
 }

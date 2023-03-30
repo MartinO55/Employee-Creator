@@ -1,6 +1,7 @@
 package com.martin.employeecreator;
 
 import jakarta.validation.constraints.NotBlank;
+import java.util.Date;
 
 public class CreateEmployeeDto {
 
@@ -80,6 +81,27 @@ public class CreateEmployeeDto {
     this.contractType = contractType;
   }
 
+  @NotBlank
+  Date startDate;
+
+  public Date getStartDate() {
+    return startDate;
+  }
+
+  public void setStartDate(Date startDate) {
+    this.startDate = startDate;
+  }
+
+  Date endDate;
+
+  public Date getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(Date endDate) {
+    this.endDate = endDate;
+  }
+
   public CreateEmployeeDto(
     String firstName,
     String middleName,
@@ -87,7 +109,9 @@ public class CreateEmployeeDto {
     String email,
     String homeAddress,
     String phoneNumber,
-    String contractType
+    String contractType,
+    Date startDate,
+    Date endDate
   ) {
     this.firstName = firstName;
     this.middleName = middleName;
@@ -96,5 +120,7 @@ public class CreateEmployeeDto {
     this.homeAddress = homeAddress;
     this.phoneNumber = phoneNumber;
     this.contractType = contractType;
+    this.startDate = startDate;
+    this.endDate = endDate;
   }
 }
