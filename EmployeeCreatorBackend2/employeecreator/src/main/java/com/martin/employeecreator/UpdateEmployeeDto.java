@@ -70,6 +70,28 @@ public class UpdateEmployeeDto {
 
   String email;
 
+  public UpdateEmployeeDto(
+    @Size(min = 1) String firstName,
+    @Size(min = 1) String middleName,
+    @Size(min = 1) String lastName,
+    String contractType,
+    String phoneNumber,
+    String homeAddress,
+    String email,
+    Date startDate,
+    Date endDate
+  ) {
+    this.firstName = firstName;
+    this.middleName = middleName;
+    this.lastName = lastName;
+    this.contractType = contractType;
+    this.phoneNumber = phoneNumber;
+    this.homeAddress = homeAddress;
+    this.email = email;
+    this.startDate = startDate;
+    this.endDate = endDate;
+  }
+
   public String getEmail() {
     return email;
   }
