@@ -39,9 +39,62 @@ public class UpdateEmployeeDto {
   }
 
   String contractType;
+
+  public String getContractType() {
+    return contractType;
+  }
+
+  public void setContractType(String contractType) {
+    this.contractType = contractType;
+  }
+
   String phoneNumber;
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
   String homeAddress;
+
+  public String getHomeAddress() {
+    return homeAddress;
+  }
+
+  public void setHomeAddress(String homeAddress) {
+    this.homeAddress = homeAddress;
+  }
+
   String email;
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
   Date startDate;
+
+  public Date getStartDate() {
+    return startDate;
+  }
+
+  public void setStartDate(Date startDate) {
+    this.startDate = startDate;
+  }
+
   Date endDate;
+
+  public Date getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(Date endDate) {
+    this.endDate = endDate;
+  }
 }
