@@ -21,7 +21,9 @@ public class Employee {
     String homeAddress,
     String phoneNumber,
     String contractType,
-    Date createdAt
+    Date createdAt,
+    Date startDate,
+    Date endDate
   ) {
     super();
     this.id = id;
@@ -33,6 +35,8 @@ public class Employee {
     this.phoneNumber = phoneNumber;
     this.contractType = contractType;
     this.createdAt = createdAt;
+    this.startDate = startDate;
+    this.endDate = endDate;
   }
 
   public Employee() {}
