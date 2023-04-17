@@ -5,27 +5,27 @@ import java.util.Date;
 
 public class CreateEmployeeDto {
 
-  @NotBlank
+  //@NotBlank
   String firstName;
 
   String middleName;
 
-  @NotBlank
+  //@NotBlank
   String lastName;
 
-  @NotBlank
+  // @NotBlank
   String email;
 
-  @NotBlank
+  // @NotBlank
   String homeAddress;
 
-  @NotBlank
+  // @NotBlank
   String phoneNumber;
 
-  @NotBlank
+  // @NotBlank
   String contractType;
 
-  @NotBlank
+  //@NotBlank
   Date startDate;
 
   Date endDate;
