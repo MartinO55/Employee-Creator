@@ -1,4 +1,4 @@
-package com.martin.employeecreator;
+package com.martin.employeecreator.Employee;
 
 import com.electronwill.nightconfig.core.file.NoFormatFoundException;
 import jakarta.validation.Valid;

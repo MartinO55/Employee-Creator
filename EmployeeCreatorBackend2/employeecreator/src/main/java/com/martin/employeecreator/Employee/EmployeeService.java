@@ -1,4 +1,4 @@
-package com.martin.employeecreator;
+package com.martin.employeecreator.Employee;
 
 import jakarta.transaction.Transactional;
 import java.util.Date;
@@ -18,7 +18,6 @@ public class EmployeeService {
   @Autowired
   private ModelMapper mapper;
 
-  @Autowired
   public Employee create(CreateEmployeeDto data) {
     String firstName = data.getFirstName().trim();
     String middleName = data.getMiddleName().trim();

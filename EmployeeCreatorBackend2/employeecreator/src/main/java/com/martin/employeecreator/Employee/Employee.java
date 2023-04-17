@@ -1,4 +1,4 @@
-package com.martin.employeecreator;
+package com.martin.employeecreator.Employee;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,11 +6,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "Employees")
-public class Employee {
+public class Employee implements Serializable {
 
   public Employee(
     Long id,
