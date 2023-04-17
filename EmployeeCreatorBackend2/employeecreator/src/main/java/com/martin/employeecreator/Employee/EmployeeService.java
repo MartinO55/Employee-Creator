@@ -1,6 +1,8 @@
 package com.martin.employeecreator.Employee;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +28,8 @@ public class EmployeeService {
     String homeAddress = data.getHomeAddress().trim();
     String phoneNumber = data.getPhoneNumber().trim();
     String contractType = data.getContractType();
-    Date startDate = data.getStartDate();
+    @NotNull
+    LocalDate startDate = data.getStartDate();
     Date endDate = data.getEndDate();
 
     Employee newEmployee = new Employee();

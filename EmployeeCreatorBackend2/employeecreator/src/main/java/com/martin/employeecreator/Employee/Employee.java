@@ -1,7 +1,9 @@
 package com.martin.employeecreator.Employee;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -136,7 +138,7 @@ public class Employee implements Serializable {
     return startDate;
   }
 
-  public void setStartDate(Date startDate) {}
+  public void setStartDate(@NotNull LocalDate startDate2) {}
 
   public Long getId() {
     return id;

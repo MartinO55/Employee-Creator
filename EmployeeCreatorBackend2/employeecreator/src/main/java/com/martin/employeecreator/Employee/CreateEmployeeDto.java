@@ -1,32 +1,34 @@
 package com.martin.employeecreator.Employee;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class CreateEmployeeDto {
 
-  //@NotBlank
+  @NotBlank
   String firstName;
 
   String middleName;
 
-  //@NotBlank
+  @NotBlank
   String lastName;
 
-  // @NotBlank
+  @NotBlank
   String email;
 
-  // @NotBlank
+  @NotBlank
   String homeAddress;
 
-  // @NotBlank
+  @NotBlank
   String phoneNumber;
 
-  // @NotBlank
+  @NotBlank
   String contractType;
 
-  //@NotBlank
-  Date startDate;
+  @NotNull
+  LocalDate startDate;
 
   Date endDate;
 
@@ -38,7 +40,7 @@ public class CreateEmployeeDto {
     String homeAddress,
     String phoneNumber,
     String contractType,
-    Date startDate,
+    @NotNull LocalDate startDate,
     Date endDate
   ) {
     this.firstName = firstName;
@@ -108,11 +110,11 @@ public class CreateEmployeeDto {
     this.contractType = contractType;
   }
 
-  public Date getStartDate() {
+  public @NotNull LocalDate getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(Date startDate) {
+  public void setStartDate(@NotNull LocalDate startDate) {
     this.startDate = startDate;
   }
 
