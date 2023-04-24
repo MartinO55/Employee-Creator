@@ -3,7 +3,6 @@ package com.martin.employeecreator.Employee;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class CreateEmployeeDto {
 
@@ -30,7 +29,7 @@ public class CreateEmployeeDto {
   @NotNull
   LocalDate startDate;
 
-  Date endDate;
+  LocalDate endDate;
 
   public CreateEmployeeDto(
     String firstName,
@@ -41,7 +40,7 @@ public class CreateEmployeeDto {
     String phoneNumber,
     String contractType,
     @NotNull LocalDate startDate,
-    Date endDate
+    LocalDate endDate
   ) {
     this.firstName = firstName;
     this.middleName = middleName;
@@ -118,11 +117,11 @@ public class CreateEmployeeDto {
     this.startDate = startDate;
   }
 
-  public Date getEndDate() {
+  public LocalDate getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(Date endDate) {
+  public void setEndDate(LocalDate endDate) {
     this.endDate = endDate;
   }
 }

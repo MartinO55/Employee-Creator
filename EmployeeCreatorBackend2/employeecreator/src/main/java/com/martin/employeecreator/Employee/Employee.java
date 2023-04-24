@@ -1,7 +1,6 @@
 package com.martin.employeecreator.Employee;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
@@ -20,8 +19,8 @@ public class Employee implements Serializable {
     String phoneNumber,
     String contractType,
     Date createdAt,
-    Date startDate,
-    Date endDate
+    LocalDate startDate,
+    LocalDate endDate
   ) {
     super();
     this.id = id;
@@ -132,13 +131,15 @@ public class Employee implements Serializable {
   }
 
   @Column
-  Date startDate;
+  LocalDate startDate;
 
-  public Date getStartDate() {
+  public LocalDate getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(@NotNull LocalDate startDate2) {}
+  public void setStartDate(LocalDate startDate) {
+    this.startDate = startDate;
+  }
 
   public Long getId() {
     return id;
@@ -149,13 +150,13 @@ public class Employee implements Serializable {
   }
 
   @Column
-  Date endDate;
+  LocalDate endDate;
 
-  public Date getEndDate() {
+  public LocalDate getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(Date endDate) {
+  public void setEndDate(LocalDate endDate) {
     this.endDate = endDate;
   }
 }

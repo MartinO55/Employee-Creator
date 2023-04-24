@@ -30,7 +30,7 @@ public class EmployeeService {
     String contractType = data.getContractType();
     @NotNull
     LocalDate startDate = data.getStartDate();
-    Date endDate = data.getEndDate();
+    LocalDate endDate = data.getEndDate();
 
     Employee newEmployee = new Employee();
 
