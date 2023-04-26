@@ -28,7 +28,7 @@ const EmployeeListContainer = () => {
         <h2>Employees: </h2>
         <ul>
           {employeeList.map((employee) => (
-            <li>
+            <li key={employee.id}>
               <EmployeeCard employee={employee} handleDelete={handleDelete} />
             </li>
           ))}
