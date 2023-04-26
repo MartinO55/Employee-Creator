@@ -1,8 +1,15 @@
 import React from "react";
 import styles from "./EmployeeCard.module.scss";
+import Employee from "../../types/Employee";
 
-const EmployeeCard = () => {
-  return <div>EmployeeCard</div>;
+type EmployeeCardProps = { employee: Employee };
+
+const EmployeeCard = ({ employee }: EmployeeCardProps) => {
+  return (
+    <>
+      <div>{employee.firstName}</div>
+    </>
+  );
 };
 
 export default EmployeeCard;
