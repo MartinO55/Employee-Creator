@@ -1,0 +1,15 @@
+.card {
+  padding: 1rem;
+
+  .card__employeeName {
+    font-weight: bold;
+  }
+
+  .card__employeeContactDetails {
+    color: red;
+  }
+
+  .card__employeeContractDetails {
+    padding: 0.5rem;
+  }
+}

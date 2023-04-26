@@ -19,7 +19,7 @@ const EmployeeListContainer = () => {
   return (
     <>
       <div>
-        <div>Employees: </div>
+        <h2>Employees: </h2>
         {employeeList.map((employee) => (
           <li>
             <EmployeeCard employee={employee} />
