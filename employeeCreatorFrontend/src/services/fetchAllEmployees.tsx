@@ -6,7 +6,7 @@ import Employee from "../types/Employee";
 
 async function fetchAllEmployees(): Promise<Employee[]> {
   try {
-    const response = await fetch(backendAddress);
+    const response = await fetch(backendAddress + "employees");
     const data = await response.json();
     return data;
   } catch (error) {
