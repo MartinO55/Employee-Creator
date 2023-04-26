@@ -2,17 +2,15 @@ import React from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { backendAddress } from "../config/backendConfig";
+import Employee from "../types/Employee";
 
-const fetchAllEmployees = () => {
+async function fetchAllEmployees(): Promise<Employee[]> {
   try {
-    return useQuery("getEmployees", async () => {
-      const result = await axios.get(backendAddress);
-      return result.data;
-    });
+    const response = await fetch(backendAddress);
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.log(error);
-    return error;
+    throw new Error("Failed to Fetch Employee Data");
   }
-};
-
+}
 export default fetchAllEmployees;
