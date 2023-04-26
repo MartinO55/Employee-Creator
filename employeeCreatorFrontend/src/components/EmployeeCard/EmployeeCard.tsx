@@ -2,9 +2,12 @@ import React from "react";
 import styles from "./EmployeeCard.module.scss";
 import Employee from "../../types/Employee";
 
-type EmployeeCardProps = { employee: Employee };
+type EmployeeCardProps = {
+  employee: Employee;
+  handleDelete: (id: string) => void;
+};
 
-const EmployeeCard = ({ employee }: EmployeeCardProps) => {
+const EmployeeCard = ({ employee, handleDelete }: EmployeeCardProps) => {
   return (
     <>
       <div className={styles.card}>
@@ -20,6 +23,11 @@ const EmployeeCard = ({ employee }: EmployeeCardProps) => {
           <div>Start Date: {employee.startDate}</div>
           <div>{employee.endDate}</div>
         </div>
+
+        <button onClick={() => handleDelete(employee.id)}>
+          Delete Employee
+        </button>
+        <button>Edit Employee</button>
       </div>
     </>
   );
