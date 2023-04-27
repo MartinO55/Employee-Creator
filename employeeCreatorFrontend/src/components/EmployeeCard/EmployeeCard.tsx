@@ -24,7 +24,10 @@ const EmployeeCard = ({ employee, handleDelete }: EmployeeCardProps) => {
           <div>{employee.endDate}</div>
         </div>
 
-        <button onClick={() => handleDelete(employee.id)}>
+        <button
+          onClick={() => handleDelete(employee.id)}
+          className={styles.card__DeleteEmployeeButton}
+        >
           Delete Employee
         </button>
         <button>Edit Employee</button>
