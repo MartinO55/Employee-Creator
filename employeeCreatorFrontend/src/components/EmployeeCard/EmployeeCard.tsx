@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./EmployeeCard.module.scss";
 import Employee from "../../types/Employee";
+import UpdateEmployeeContainer from "../../Containers/UpdateEmployeeContainer/UpdateEmployeeContainer";
+import UpdateEmployeeForm from "../UpdateEmployeeForm/UpdateEmployeeForm";
+import { useNavigate } from "react-router-dom";
 
 type EmployeeCardProps = {
   employee: Employee;
@@ -8,6 +11,12 @@ type EmployeeCardProps = {
 };
 
 const EmployeeCard = ({ employee, handleDelete }: EmployeeCardProps) => {
+  const navigate = useNavigate();
+
+  const handleEditNavigate = () => {
+    navigate(`/UpdateEmployee/${employee.id}`);
+  };
+
   return (
     <>
       <div className={styles.card}>
@@ -30,7 +39,7 @@ const EmployeeCard = ({ employee, handleDelete }: EmployeeCardProps) => {
         >
           Delete Employee
         </button>
-        <button>Edit Employee</button>
+        <button onClick={handleEditNavigate}>Edit Employee</button>
       </div>
     </>
   );

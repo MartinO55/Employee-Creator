@@ -5,7 +5,10 @@ import HomePage from "./Containers/HomePage/HomePage";
 import Footer from "./components/Footer/Footer";
 import NotFound from "./components/NotFound/NotFound";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import CreateEmployeeForm from "./components/CreateEmployeeForm/CreateEmployeeForm";
+import UpdateEmployeeContainer from "./Containers/UpdateEmployeeContainer/UpdateEmployeeContainer";
+import UpdateEmployeeForm from "./components/UpdateEmployeeForm/UpdateEmployeeForm";
 
 const App = () => {
   return (
@@ -15,8 +18,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/employees" element={<EmployeeListContainer />} />
           <Route path="/NewEmployee" element={<CreateEmployeeForm />} />
+
+          <Route path="/" element={<EmployeeListContainer />} />
+          <Route
+            path="/UpdateEmployee/:id"
+            element={<UpdateEmployeeContainer />}
+          />
         </Routes>
 
         <Footer></Footer>

@@ -4,6 +4,7 @@ type Employee = {
   middleName: string | null;
   lastName: string;
   email: string;
+  homeAddress: string;
   phoneNumber: string;
   contractType: string;
   createdAt: string;
