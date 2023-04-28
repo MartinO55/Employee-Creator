@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styles from "./CreateEmployeeForm.module.scss";
 
-import Employee from "../../types/Employee";
 import { backendAddress } from "../../config/backendConfig";
-import { CreateNewEmployee } from "../../services/createNewEmployee";
 
 interface FormValues {
   firstName: string;
@@ -37,7 +35,7 @@ const CreateEmployeeForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("submitted" + formValues.firstName);
+
     fetch(backendAddress + "employees", {
       method: "POST",
       headers: {
@@ -45,6 +43,7 @@ const CreateEmployeeForm = () => {
       },
       body: JSON.stringify(formValues),
     });
+    //needs to navigate to the employees list
   };
 
   return (

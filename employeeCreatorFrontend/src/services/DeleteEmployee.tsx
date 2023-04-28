@@ -11,5 +11,10 @@ export async function deleteEmployee(id: string) {
     console.log("delete Employee with id: " + id);
   } catch (error) {
     throw new Error("failed to Delete employee with id: " + id);
+  } finally {
+    //needs to reload the page
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
 }
