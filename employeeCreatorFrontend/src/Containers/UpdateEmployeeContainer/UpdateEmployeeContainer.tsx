@@ -10,8 +10,7 @@ const UpdateEmployeeContainer = () => {
   const { id } = useParams<{ id: string }>();
 
   const [employeeList, setEmployeeList] = useState<Employee[]>([]);
-  console.log(id);
-
+  //should have its own service
   function getEmployeeById(id: string) {
     if (id != undefined) {
       useEffect(() => {
@@ -29,7 +28,6 @@ const UpdateEmployeeContainer = () => {
 
   const employee: Employee | undefined = id ? getEmployeeById(id) : undefined;
 
-  console.log(employee);
   return (
     <>
       <div>{employee && <UpdateEmployeeForm employee={employee} />}</div>

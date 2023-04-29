@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from "react";
 import styles from "./UpdateEmployeeForm.module.scss";
 
 import Employee from "../../types/Employee";
+import { UpdateEmployee } from "../../services/UpdateEmployee";
 
 interface UpdateEmployeeProps {
   employee: Employee;
@@ -22,17 +23,6 @@ const UpdateEmployeeForm: React.FC<UpdateEmployeeProps> = ({ employee }) => {
     endDate: employee.endDate,
     createdAt: employee.createdAt,
   });
-  // const [firstName, setFirstName] = useState(employee.firstName);
-  // const [middleName, setMiddleName] = useState(employee.middleName);
-  // const [lastName, setLastName] = useState(employee.lastName);
-
-  // const [email, setEmail] = useState(employee.email);
-  // const [phoneNumber, setPhoneNumber] = useState(employee.phoneNumber);
-  // const [homeAddress, setHomeAddress] = useState(employee.homeAddress);
-
-  // const [contractType, setContractType] = useState(employee.contractType);
-  // const [startDate, setStartDate] = useState(employee.startDate);
-  // const [endDate, setEndDate] = useState(employee.endDate);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -47,6 +37,7 @@ const UpdateEmployeeForm: React.FC<UpdateEmployeeProps> = ({ employee }) => {
     event.preventDefault();
     //send data
     console.log(formData);
+    UpdateEmployee(formData);
   }
 
   return (
