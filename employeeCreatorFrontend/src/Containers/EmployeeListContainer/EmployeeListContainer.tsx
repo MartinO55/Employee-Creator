@@ -22,12 +22,17 @@ const EmployeeListContainer = () => {
     getEmployees();
   }, []);
 
+  const sortedEmployees = [...employeeList].sort((a, b) =>
+    a.lastName > b.lastName ? 1 : -1
+  );
+
   return (
+    //Maybe add a sort function?
     <>
       <div>
         <h2>Employees: </h2>
         <ul className={styles.employee__Cards}>
-          {employeeList.map((employee) => (
+          {sortedEmployees.map((employee) => (
             <li key={employee.id}>
               <EmployeeCard employee={employee} handleDelete={handleDelete} />
             </li>
