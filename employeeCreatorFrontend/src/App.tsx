@@ -8,7 +8,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import CreateEmployeeForm from "./components/CreateEmployeeForm/CreateEmployeeForm";
 import UpdateEmployeeContainer from "./Containers/UpdateEmployeeContainer/UpdateEmployeeContainer";
-import UpdateEmployeeForm from "./components/UpdateEmployeeForm/UpdateEmployeeForm";
 
 const App = () => {
   return (

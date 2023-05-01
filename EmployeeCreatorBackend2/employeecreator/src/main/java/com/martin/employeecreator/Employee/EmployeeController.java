@@ -60,7 +60,7 @@ public class EmployeeController {
     return new ResponseEntity<>(maybeEmployee.get(), HttpStatus.OK);
   }
 
-  @PatchMapping("/{id}")
+  @PutMapping("/{id}")
   public ResponseEntity<Employee> updateAnEmployeeById(
     @PathVariable Long id,
     @Valid @RequestBody CreateEmployeeDto data
