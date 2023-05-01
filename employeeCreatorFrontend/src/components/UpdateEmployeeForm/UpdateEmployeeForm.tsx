@@ -10,6 +10,7 @@ interface UpdateEmployeeProps {
 
 const UpdateEmployeeForm: React.FC<UpdateEmployeeProps> = ({ employee }) => {
   console.log(employee);
+
   const [formData, setFormData] = useState<Employee>({
     id: employee.id,
     firstName: employee.firstName,
@@ -37,7 +38,15 @@ const UpdateEmployeeForm: React.FC<UpdateEmployeeProps> = ({ employee }) => {
     event.preventDefault();
     //send data
     console.log(formData);
-    UpdateEmployee(formData);
+    UpdateEmployee(formData)
+      .then(() => {
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.log(error);
+        throw new Error("unable to submit update");
+      });
+    //navigate back to home
   }
 
   return (
@@ -89,6 +98,8 @@ const UpdateEmployeeForm: React.FC<UpdateEmployeeProps> = ({ employee }) => {
               value={formData.phoneNumber}
               onChange={handleInput}
             />
+          </div>
+          <div>
             <input
               type="text"
               placeholder="Home Address"

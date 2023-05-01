@@ -30,7 +30,7 @@ const EmployeeCard = ({ employee, handleDelete }: EmployeeCardProps) => {
         <div className={styles.card__employeeContractDetails}>
           <div>{employee.contractType}</div>
           <div>Start Date: {employee.startDate}</div>
-          <div>{employee.endDate}</div>
+          <div>End Date: {employee.endDate}</div>
         </div>
 
         <button
