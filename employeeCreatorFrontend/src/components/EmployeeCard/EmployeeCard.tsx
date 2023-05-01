@@ -39,7 +39,12 @@ const EmployeeCard = ({ employee, handleDelete }: EmployeeCardProps) => {
         >
           Delete Employee
         </button>
-        <button onClick={handleEditNavigate}>Edit Employee</button>
+        <button
+          onClick={handleEditNavigate}
+          className={styles.card__EditEmployeeButton}
+        >
+          Edit Employee
+        </button>
       </div>
     </>
   );

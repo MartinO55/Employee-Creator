@@ -46,7 +46,6 @@ const UpdateEmployeeForm: React.FC<UpdateEmployeeProps> = ({ employee }) => {
         console.log(error);
         throw new Error("unable to submit update");
       });
-    //navigate back to home
   }
 
   return (
