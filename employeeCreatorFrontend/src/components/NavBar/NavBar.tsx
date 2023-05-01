@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <>
-      <div>
-        <ul>
-          <li>
+      <div className={styles.NavBar}>
+        <ul className={styles.NavbarLinks}>
+          <li className={styles.NavbarLinks__ALink}>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className={styles.NavbarLinks__ALink}>
             <Link to="/NewEmployee">Add an Employee</Link>
           </li>
         </ul>

@@ -57,6 +57,7 @@ const CreateEmployeeForm = () => {
               name="firstName"
               value={formValues.firstName}
               onChange={handleInput}
+              required
             />
           </div>
           <div>
@@ -75,6 +76,7 @@ const CreateEmployeeForm = () => {
               name="lastName"
               value={formValues.lastName}
               onChange={handleInput}
+              required
             />
           </div>
 
@@ -85,6 +87,7 @@ const CreateEmployeeForm = () => {
               name="email"
               value={formValues.email}
               onChange={handleInput}
+              required
             />
           </div>
           <div>
@@ -94,13 +97,17 @@ const CreateEmployeeForm = () => {
               name="phoneNumber"
               value={formValues.phoneNumber}
               onChange={handleInput}
+              required
             />
+          </div>
+          <div>
             <input
               type="text"
               placeholder="Home Address"
               name="homeAddress"
               value={formValues.homeAddress}
               onChange={handleInput}
+              required
             />
           </div>
 
@@ -111,6 +118,7 @@ const CreateEmployeeForm = () => {
               name="contractType"
               value={formValues.contractType}
               onChange={handleInput}
+              required
             />
           </div>
           <div>
@@ -120,6 +128,7 @@ const CreateEmployeeForm = () => {
               name="startDate"
               value={formValues.startDate}
               onChange={handleInput}
+              required
             />
           </div>
           <div>

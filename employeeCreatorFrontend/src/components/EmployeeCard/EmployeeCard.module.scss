@@ -1,12 +1,15 @@
 .card {
+  margin: 1rem;
   padding: 1rem;
+  border: 2px solid black;
+  border-radius: 2rem;
 
   .card__employeeName {
     font-weight: bold;
   }
 
   .card__employeeContactDetails {
-    color: red;
+    padding: 0.5rem;
   }
 
   .card__employeeContractDetails {
