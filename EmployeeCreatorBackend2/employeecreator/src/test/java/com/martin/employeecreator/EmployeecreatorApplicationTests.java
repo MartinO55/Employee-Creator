@@ -2,6 +2,8 @@ package com.martin.employeecreator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -60,7 +62,7 @@ class EmployeecreatorApplicationTests {
 
   //get All works
   @Test
-  public void testTest() throws Exception {
+  public void itShouldReturnOkToGetAllEmployees() throws Exception {
     mockMvc
       .perform(
         MockMvcRequestBuilders
@@ -72,7 +74,7 @@ class EmployeecreatorApplicationTests {
 
   //I would write an invalid employee test, but the DTO blocks you from trying to submit invalid data, so you cant even pass it to get the 400 returned
   @Test
-  public void createValidEmployeeTest() throws Exception {
+  public void itShouldReturnOkToCreateValidEmployee() throws Exception {
     String firstName = "Little";
     String middleName = "Johny";
     String lastName = "Testcase";
@@ -107,7 +109,7 @@ class EmployeecreatorApplicationTests {
 
   //delete and get all work
   @Test
-  public void DeleteAllEmployeesTest() throws Exception {
+  public void itShouldReturnEmptyAfterDeletingAllEmployees() throws Exception {
     mockMvc.perform(delete("/employees")).andExpect(status().isNoContent());
 
     mockMvc
@@ -117,7 +119,7 @@ class EmployeecreatorApplicationTests {
   }
 
   @Test
-  public void GetByIDTest() throws Exception {
+  public void itShouldGetOneEmployeeByID() throws Exception {
     Employee mockEmployee = new Employee();
 
     mockEmployee.setId(1L);
@@ -140,5 +142,42 @@ class EmployeecreatorApplicationTests {
       .andExpect(jsonPath("$.id").value(1))
       .andExpect(jsonPath("$.firstName").value("Little"))
       .andExpect(jsonPath("$.contractType").value("Casual"));
+  }
+
+  @Test
+  public void itShouldDeleteByIdAndReturnOkIfEmployeeExists() throws Exception {
+    Employee mockEmployee = new Employee();
+    mockEmployee.setId(1L);
+    mockEmployee.setFirstName("Little");
+    mockEmployee.setMiddleName("Johnny");
+    mockEmployee.setLastName("Tester");
+    mockEmployee.setEmail("LittleJohnny@gmail.com");
+    mockEmployee.setHomeAddress("1 Test Street");
+    mockEmployee.setPhoneNumber("555555555");
+    mockEmployee.setContractType("Casual");
+    mockEmployee.setStartDate(LocalDate.of(2022, 4, 13));
+    mockEmployee.setEndDate(LocalDate.of(2022, 4, 14));
+
+    Long id = 1L;
+
+    when(employeeService.findById(id)).thenReturn(Optional.of(mockEmployee));
+
+    mockMvc
+      .perform(delete("/employees/{id}", id))
+      .andExpect(status().isNoContent());
+    verify(employeeService, times(1)).deleteEmployeeById(id);
+  }
+
+  @Test
+  public void itShouldreturnInvalidIfDeletingEmployeeDoesNotExist()
+    throws Exception {
+    Long id = 2L;
+
+    when(employeeService.findById(id)).thenReturn(Optional.empty());
+
+    mockMvc
+      .perform(delete("/employees/{id}", id))
+      .andExpect(status().isNotFound());
+    verify(employeeService, times(0)).deleteEmployeeById(id);
   }
 }
