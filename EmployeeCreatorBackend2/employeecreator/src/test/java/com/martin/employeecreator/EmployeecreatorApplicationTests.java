@@ -1,7 +1,5 @@
 package com.martin.employeecreator;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -14,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.martin.employeecreator.Employee.CreateEmployeeDto;
 import com.martin.employeecreator.Employee.Employee;
 import com.martin.employeecreator.Employee.EmployeeController;
+import com.martin.employeecreator.Employee.EmployeeRepository;
 import com.martin.employeecreator.Employee.EmployeeService;
 import com.martin.employeecreator.Employee.EmployeecreatorApplication;
 import java.time.LocalDate;
@@ -25,13 +24,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy.Content;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.*;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -54,6 +50,9 @@ class EmployeecreatorApplicationTests {
 
   @InjectMocks
   private EmployeeController employeeController;
+
+  @Mock
+  private EmployeeRepository employeeRepository;
 
   @BeforeEach
   public void setUp() {
